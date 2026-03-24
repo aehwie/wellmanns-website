@@ -1,0 +1,187 @@
+<!-- Main Container: Flexbox column for sticky footer if needed, but here focus on scrollable one-pager -->
+<div class="min-h-screen bg-weblack text-wewhite font-lora relative">
+
+  <!-- Global Decorative Background element -->
+  <div class="fixed inset-0 overflow-hidden -z-0 opacity-10 pointer-events-none">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-300 rounded-full blur-[120px] -mr-32 -mt-32"></div>
+      <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-300 rounded-full blur-[120px] -ml-32 -mb-32"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[150px]"></div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-50 w-full bg-weblack/80 backdrop-blur-md border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex-shrink-0 flex items-center">
+          <img src="assets/wellmann_logo_neg.png" alt="Wellmanns" class="h-8 w-auto" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-wewhite/70 hover:text-wewhite px-3 py-2 text-sm font-medium transition-colors">Home</a>
+          <a href="#services" class="text-wewhite/70 hover:text-wewhite px-3 py-2 text-sm font-medium transition-colors">Services</a>
+          <a href="#about" class="text-wewhite/70 hover:text-wewhite px-3 py-2 text-sm font-medium transition-colors">Über uns</a>
+          <a href="#contact" class="text-wewhite/70 hover:text-wewhite px-3 py-2 text-sm font-medium transition-colors">Kontakt</a>
+        </div>
+
+        <!-- Mobile Menu Button (Hamburger) - simplified for placeholder -->
+        <div class="md:hidden flex items-center">
+          <button (click)="toggleMenu()" type="button" class="text-wewhite/70 hover:text-wewhite" aria-label="Menü öffnen">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="5" cy="12" r="1.5" />
+              <circle cx="12" cy="12" r="1.5" />
+              <circle cx="19" cy="12" r="1.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    @if (isMenuOpen()) {
+      <div class="md:hidden bg-weblack/95 backdrop-blur-lg border-b border-white/10">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="#home" (click)="closeMenu()" class="text-wewhite/70 hover:text-wewhite block px-3 py-2 text-base font-medium transition-colors">Home</a>
+          <a href="#services" (click)="closeMenu()" class="text-wewhite/70 hover:text-wewhite block px-3 py-2 text-base font-medium transition-colors">Services</a>
+          <a href="#about" (click)="closeMenu()" class="text-wewhite/70 hover:text-wewhite block px-3 py-2 text-base font-medium transition-colors">Über uns</a>
+          <a href="#contact" (click)="closeMenu()" class="text-wewhite/70 hover:text-wewhite block px-3 py-2 text-base font-medium transition-colors">Kontakt</a>
+        </div>
+      </div>
+    }
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden pt-16 pb-32 lg:pt-32 lg:pb-48">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+          <h1 class="text-4xl tracking-tight text-wewhite sm:text-5xl md:text-6xl font-hanley">
+            <span class="block">Wir pflegen ihr</span>
+            <span class="block text-wewhite/90">Fahrzeug vor Ort</span>
+          </h1>
+          <p class="mt-3 max-w-md mx-auto text-base text-wewhite/60 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            Zu Ihrem Wunschtermin. Professionell, nachhaltig und diskret.
+          </p>
+          <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8 invisible">
+            <div class="rounded-md shadow">
+              <a href="#contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-weblack bg-wewhite hover:bg-wewhite/90 md:py-4 md:text-lg md:px-10 transition-colors">
+                Termin buchen
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-extrabold text-wewhite sm:text-4xl">Unsere Services</h2>
+          <p class="mt-4 text-xl text-wewhite/60">Was wir für Sie tun können.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div class="bg-wewhite/5 p-8 rounded-xl border border-wewhite/10 hover:border-wewhite/20 transition-colors">
+            <div class="w-12 h-12 bg-wewhite/10 text-wewhite rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-wewhite">Web Design</h3>
+            <p class="text-wewhite/60">Moderne und ansprechende Designs, die auf allen Geräten perfekt funktionieren.</p>
+          </div>
+          <!-- Service 2 -->
+          <div class="bg-wewhite/5 p-8 rounded-xl border border-wewhite/10 hover:border-wewhite/20 transition-colors">
+            <div class="w-12 h-12 bg-wewhite/10 text-wewhite rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-wewhite">Entwicklung</h3>
+            <p class="text-wewhite/60">Sauberer Code und modernste Technologien wie Angular und Tailwind CSS.</p>
+          </div>
+          <!-- Service 3 -->
+          <div class="bg-wewhite/5 p-8 rounded-xl border border-wewhite/10 hover:border-wewhite/20 transition-colors">
+            <div class="w-12 h-12 bg-wewhite/10 text-wewhite rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-wewhite">Performance</h3>
+            <p class="text-wewhite/60">Optimierte Ladezeiten für das beste Nutzererlebnis auf jedem Endgerät.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:flex lg:items-center lg:gap-12">
+          <div class="lg:w-1/2 mb-10 lg:mb-0">
+            <div class="rounded-2xl bg-wewhite/5 aspect-video flex items-center justify-center text-wewhite/20 border border-wewhite/10">
+               <!-- Placeholder for Image -->
+               <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
+            </div>
+          </div>
+          <div class="lg:w-1/2">
+            <h2 class="text-3xl font-extrabold text-wewhite mb-6">Über dieses Projekt</h2>
+            <p class="text-lg text-wewhite/60 mb-6">
+              Dies ist ein Grundgerüst für einen One-Pager, das mit Angular und Tailwind CSS erstellt wurde. Es nutzt die neuesten Features von Tailwind 4.0.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-wewhite/40 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-wewhite/80">Responsive Navigation</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-wewhite/40 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-wewhite/80">Moderne Typografie</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-wewhite/40 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-wewhite/80">Scroll-Optimierung</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold mb-8 text-wewhite">Bereit für Ihr Projekt?</h2>
+        <p class="text-xl text-wewhite/60 mb-10 max-w-2xl mx-auto">
+          Kontaktieren Sie uns noch heute und lassen Sie uns gemeinsam etwas Großartiges erschaffen.
+        </p>
+        <a href="mailto:hallo@example.com" class="inline-flex items-center justify-center px-8 py-4 border border-wewhite/20 text-lg font-medium rounded-md text-wewhite hover:bg-wewhite/10 transition-colors">
+          Schreiben Sie uns eine E-Mail
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-wewhite/10 py-12 pb-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <img src="assets/wellmann_logo_neg.png" alt="Wellmanns" class="h-8 w-auto opacity-60" />
+        </div>
+        <div class="text-wewhite/40 text-sm">
+          &copy; 2026 Wellmanns Website. Alle Rechte vorbehalten.
+        </div>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <!-- Simple Social Placeholders -->
+          <a href="#" class="text-wewhite/40 hover:text-wewhite transition-colors underline decoration-dotted">Impressum</a>
+          <a href="#" class="text-wewhite/40 hover:text-wewhite transition-colors underline decoration-dotted">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky "Termin buchen" Button -->
+  <div class="fixed bottom-8 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <a href="#contact" class="pointer-events-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-black bg-wewhite shadow-2xl hover:bg-wewhite/90 transition-all hover:scale-105 active:scale-95">
+      Termin buchen
+    </a>
+  </div>
+</div>

@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+  --color-weblack: #1D1D1D;
+  --color-wewhite: #F5F2EDF5;
+
+  --font-hanley: "HanleyProSansTwo", ui-sans-serif, system-ui;
+  --font-lora: "Lora-Medium", ui-serif, Georgia, serif;
+}
+
+@font-face {
+  font-family: "HanleyProSansTwo";
+  src: url("/assets/fonts/HanleyProSansTwo.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lora-Medium";
+  src: url("/assets/fonts/Lora-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
